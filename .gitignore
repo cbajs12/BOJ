@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+
+# ETC
+CMakeLists.txt
+.DS_Store
+
