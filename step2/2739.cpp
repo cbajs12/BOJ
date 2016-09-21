@@ -7,12 +7,13 @@ int main(void){
 
     cin>>num1;
 
-    if(num1 < 1 || num1 > 100000)
+    if(num1 < 1 || num1 > 9)
         return 0;
 
-    for(i=1; i<=num1; i++){
-        printf("%d", i);
-        if(i != num1)
+    for(i=1; i<=9; ++i){
+        printf("%d * %d = %d", num1, i, num1*i);
+        if(i != 9)
             printf("\n");
     }
 }
+

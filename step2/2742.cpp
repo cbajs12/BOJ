@@ -10,9 +10,9 @@ int main(void){
     if(num1 < 1 || num1 > 100000)
         return 0;
 
-    for(i=1; i<=num1; i++){
+    for(i=num1; i>0; --i){
         printf("%d", i);
-        if(i != num1)
+        if(i != 1)
             printf("\n");
     }
 }
