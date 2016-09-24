@@ -12,20 +12,19 @@ int main(void) {
 
     scanf("%s", &c);
 
-    for(int i=0; c[i] != '\0'; ++i){
-        for(int j=0; j<26; ++j){
+    for(int j=0; j<26; ++j){
+        for(int i=0; c[i] != '\0'; ++i){
             if(num[j] != -2)
-                continue;
+                break;
 
             if(alphabet[j] == c[i]){
-                printf("%c",c[i]);
-                printf("%d", j);
-                printf("\n");
-                num[j] = j;
-            }else{
-                num[i] = -1;
+                num[j] = i;
+                break;
             }
         }
+
+        if(num[j] == -2)
+            num[j] = -1;
     }
 
     for(int i=0; i<26; ++i){
