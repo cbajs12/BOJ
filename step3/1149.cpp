@@ -1,58 +1,46 @@
 #include <iostream>
-#include <sstream>
-#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-vector<int> getInput(ssize_t sizeLimit)
-{
-    vector<int> tokenVector;
-    string line;
-    getline(cin, line);
-    istringstream iss(line);
-    string token;
-    while (getline(iss, token, ' ')) {
-        try {
-            tokenVector.push_back(stoi(token));
-        } catch (exception& e) {
+int main(void) {
+    int num;
+
+    cin>>num;
+
+    int R, G, B;
+    int preR=0, preG=0, preB=0;
+    for(int i=0; i<num; ++i){
+        scanf("%d %d %d", &R, &G, &B);
+
+        if(preR==0 && preB==0 && preG==0){
+            preB=B;
+            preG=G;
+            preR=R;
             continue;
         }
-        if (tokenVector.size() >= sizeLimit) {
-            break;
+
+        R = min(preB+R, preG+R);
+        B = min(preR+B, preG+B);
+        G = min(preR+G, preB+G);
+
+        preR=R;
+        preG=G;
+        preB=B;
+    }
+
+    int result;
+    if(preR > preB){
+        result=preB;
+        if(result>preG){
+            result=preG;
+        }
+    }else{
+        result=preR;
+        if(result>preG){
+            result=preG;
         }
     }
-    return tokenVector;
-}
 
-int main(void) {
-    int num, t;
-    int min, start, result;
-
-    cin>>t;
-
-    if(t > 1000 || t < 1)
-        return 0;
-
-    int nums[t][3];
-
-    for(int i = 0; i<t; ++i){
-        vector<int> numbers = getInput(3);
-        nums[i][0] = numbers[0];
-        nums[i][1] = numbers[1];
-        nums[i][2] = numbers[2];
-    }
-
-    min = 0;
-    for(int j=0; j<3; ++j){
-        min = nums[0][j];
-        for(int i = 1; i<t; ++i){
-            for(int k=0; k<3; ++k){
-//                nums[]
-            }
-        }
-        if(result < min)
-            result = min;
-    }
-
-    printf("result = %d\n", result);
+    printf("%d\n", result);
 }

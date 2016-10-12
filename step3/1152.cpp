@@ -33,6 +33,9 @@ int main(void){
 //count+=1;
 //}
 //});
+// #include <memory.h>
+//memset(sum, 0, sizeof(int)*MAX);
+//memcpy(preSum, sum, sizeof(int)*MAX);
 }
 
 
