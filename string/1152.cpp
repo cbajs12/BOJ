@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
-vector<string> getInput(ssize_t sizeLimit)
+vector<string> getInput()
 {
     vector<string> tokenVector;
     string line;
@@ -16,29 +17,20 @@ vector<string> getInput(ssize_t sizeLimit)
     istringstream iss(line);
     string token;
     while (getline(iss, token, ' ')) {
-
         tokenVector.push_back(token);
-        if (tokenVector.size() >= sizeLimit) {
-            break;
-        }
     }
     return tokenVector;
 }
 
 int main(void){
-//vector<string> words = getInput(1000);
+    vector<string> words = getInput();
 
-// for_each(words.begin(), words.end(), [] (string word, int count=0) {
-//if(word.){
-//count+=1;
-//}
-//});
-// #include <memory.h>
-//memset(sum, 0, sizeof(int)*MAX);
-//memcpy(preSum, sum, sizeof(int)*MAX);
+    int count =0;
+    for(int i=0; i<words.size(); ++i){
+        if(words[i].find_first_not_of (' ') != words[i].npos)
+            count++;
+    }
+
+    printf("%d", count);
 }
-
-
-
-
 
