@@ -11,8 +11,6 @@ struct Vertax{
 };
 
 
-
-//
 //void dfs(Node* header, Node* tail, int point, int start, int** matrix){
 //    int i = start-1;
 //    push(header, tail, start);
