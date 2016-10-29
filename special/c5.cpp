@@ -7,5 +7,9 @@ int main(void){
 
     cin>>str;
 
+    string tmp;
 
+    for(int i=0; i<str.length(); ++i){
+
+    }
 }
