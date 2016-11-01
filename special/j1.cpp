@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <list>
 #include <map>
 using namespace std;
 
@@ -15,27 +15,45 @@ int main(void){
         m[i] = 0;
     }
 
+    list<int> l;
     for(int i=0; i<str.length(); ++i){
         ++m[str[i]];
     }
 
-    vector result;
+    map<char, int>::iterator iter;
 
-    int size=0;
-    for(int i=0; i<26; ++i){
-        if(size < v[i].size())
-            size = (int)v[i].size();
+    for(iter=m.begin(); iter != m.end(); ++iter){
+        printf("%c %d\n", iter->first, iter->second);
+        l.push_back((int)(iter->first) * (iter->second));
     }
 
-    for(int i=0; i<size; ++i){
-        for(int j=0; j<26; ++j){
-            if(v[j].size() == i){
+    list<int>::iterator it;
+    list<char> result;
 
+    l.sort();
+    int temp;
+
+    for(it=l.begin(); it != l.end(); ++it){
+        if(*it == 0){
+            continue;
+        }
+
+        printf("%d\n", *it);
+        for(iter=m.begin(); iter !=m.end(); ++iter){
+            temp = (int)(iter->first) * (iter->second);
+            if(temp == *it){
+                for(int i=0; i < iter->second; ++i){
+                    result.push_back(iter->first);
+                }
             }
         }
     }
 
+    list<char>::iterator re;
 
+    for(re=result.begin(); re != result.end(); ++re){
+        printf("%c", *re);
+    }
 
 
 }
