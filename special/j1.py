@@ -1,6 +1,3 @@
-__author__ = 'jeonjiseong'
-
-
 def sort_alphabet(string_line):
     word_hash = dict()
     word_list = []
