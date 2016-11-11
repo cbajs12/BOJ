@@ -1,48 +1,53 @@
-Include <memory.h>
-Define MAX 1000000;
-Int checkSally(int arr[], int size){
-Int max = 0;
-Int min = MAX;
-Int result = 0;
-Int resultArry[size]
-Memset(resultArry, 0, size)
-for(int i=0; i<size; ++i){
-if(arr[i] > max){
-max = arr[i];
-resultArry[i]++;
+#include <memory.h>
+#include <iostream>
+#define MAX 1000000;
+using namespace std;
+
+int checkSally(int arr[], int size){
+    int max = 0;
+    int min = MAX;
+    int result = 0;
+    int resultArry[size];
+    memset(resultArry, 0, size);
+    for(int i=0; i<size; ++i){
+        if(arr[i] > max){
+            max = arr[i];
+            resultArry[i]++;
+        }
+    }
+
+    for(int i=size-1; i>=0; --i){
+        if(arr[i] < min){
+            min = arr[i];
+            resultArry[i]++;
+        }
+    }
+
+    for(int i=0; i<size; ++i){
+        if(resultArry[i] == 0)
+            result++;
+    }
+
+    return result;
 }
-}
-for(int i=size-1; i>=0; --i){
-If(arr[i] < min){
-min = arr[i];
-resultArry[i]++;
-}
-}
-For(int i=0; i<size; ++i){
-If(resultArry[i] == 0)
-result++;
-}
-return result;
-}
 
 
-Int main(void){
-Int size;
-Cin>>size;
+int main(void){
+    int size;
+    cin>>size;
 
 
-Int arr[size];
-Int result;
+    int arr[size];
+    int result;
+
+    arr = {1,2,3,4,6};
+    result = checkSally(arr, size);
 
 
-Input(arr) // 배열에 값을 할당하는 임의의 함수
-result = checkSally(arr, size);
-
-
-If(result > 0)
-Printf(“Sally exist”);
-else
-Printf(“Sally do not exist”);
+    if(result > 0)
+        printf("Sally exist");
+    else
+        printf("Sally do not exist");
 }
 
 
