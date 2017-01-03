@@ -31,4 +31,4 @@
 # ETC
 CMakeLists.txt
 .DS_Store
-
+.idea
